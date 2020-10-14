@@ -8,9 +8,16 @@ function getDogImage(userBreed) {
 }
 
 function displayResults(responseJson) {
+    console.log("displayResults ran");
     console.log(responseJson);
+    if (responseJson.message === "Breed not found (master breed does not exist)"){
+        console.log("displayResults notFound");
+        alert("Breed Not Found!  Try again!");
+    } else {
+    console.log(responseJson.message);
     $(".results").html(`<img src=${responseJson.message}>`);
     $(".results").removeClass("hidden");
+    }
 }
 
 function watchForm() {
